@@ -17,8 +17,6 @@ import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 {{/if}}
 import { compose, Dispatch } from 'redux';
-{{#if wantSaga}}
-import { useInjectSaga } from 'utils/injectSaga';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { useInjectReducer } from 'utils/injectReducer';
@@ -27,8 +25,6 @@ import makeSelect{{properCase name}} from './selectors';
 import reducer from './reducer';
 import { RootState } from './types';
 {{/if}}
-{{#if wantSaga}}
-import saga from './saga';
 {{/if}}
 {{#if wantMessages}}
 import messages from './messages';
@@ -49,8 +45,6 @@ export function {{ properCase name }}(props: Props) {
   {{#if wantActionsAndReducer}}
   useInjectReducer({ key: '{{ camelCase name }}', reducer: reducer });
   {{/if}}
-  {{#if wantSaga}}
-  useInjectSaga({ key: '{{ camelCase name }}', saga: saga });
   {{/if}}
   return (
     <div>
