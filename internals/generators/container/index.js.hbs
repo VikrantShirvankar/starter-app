@@ -20,8 +20,6 @@ import { compose, Dispatch } from 'redux';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { useInjectReducer } from 'utils/injectReducer';
-import { createStructuredSelector } from 'reselect';
-import makeSelect{{properCase name}} from './selectors';
 import reducer from './reducer';
 import { RootState } from './types';
 {{/if}}
